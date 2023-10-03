@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+  - directory: "/"
+  - schedule:
+      interval: "daily"
+  
+    assignees:
+      - "efiaroca"
+    
+    commit-message:
+      prefix: "[aroca-fault]"
+
+    labels:
+      - "aroca-fault"
+      - "dependencies"
