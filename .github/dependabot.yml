@@ -13,4 +13,5 @@ updates:
 
     labels:
       - "aroca-fault"
-      - "dependencies"
+      - "pip"
+      - "damn"
