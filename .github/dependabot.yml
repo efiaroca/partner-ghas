@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-  - directory: "/"
+  - directory: "/auth-services"
   - schedule:
       interval: "daily"
   
@@ -15,3 +15,4 @@ updates:
       - "aroca-fault"
       - "pip"
       - "damn"
+      - "dependencies"
