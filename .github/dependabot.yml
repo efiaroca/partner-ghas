@@ -1,8 +1,8 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-  - directory: "/auth-services"
-  - schedule:
+    directory: "/auth-services"
+    schedule:
       interval: "daily"
   
     assignees:
