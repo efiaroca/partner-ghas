@@ -1,3 +1,4 @@
+[![CodeQL](https://github.com/efiaroca/partner-ghas/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/efiaroca/partner-ghas/actions/workflows/codeql.yml)
 <h1 align="center">GitHub Advanced Security Workshop</h1>
 <p align="center">
   <a href="#mega-prerequisites">Prerequisites</a> •  
