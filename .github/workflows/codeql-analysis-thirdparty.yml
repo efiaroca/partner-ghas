@@ -1,0 +1,56 @@
+# For most projects, this workflow file will not need changing; you simply need
+# to commit it to your repository.
+#
+# You may wish to alter this file to override the set of languages analyzed,
+# or to provide custom queries or build logic.
+#
+# ******** NOTE ********
+# We have attempted to detect the languages in your repository. Please check
+# the `language` matrix defined below to confirm you have the correct set of
+# supported CodeQL languages.
+#
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "main" ]
+  schedule:
+    - cron: '40 10 * * 1'
+
+jobs:
+  analyze:
+    name: Analyze
+    # Runner size impacts CodeQL analysis time. To learn more, please see:
+    #   - https://gh.io/recommended-hardware-resources-for-running-codeql
+    #   - https://gh.io/supported-runners-and-hardware-resources
+    #   - https://gh.io/using-larger-runners
+    # Consider using larger runners for possible analysis time improvements.
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+
+    steps:
+      - name: Install codeql-runner
+        run: |
+          wget -q https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
+          sudo install -o root -g root -m 0755 codeql-runner-linux /usr/local/bin/codeql-runner
+      - name: Execute CodeQL Runner
+        run: |
+          echo "${{ github.token }}" | codeql-runner init \
+            --github-url "https://github.com" \
+            --repository "${{ github.repository }}" \
+            --github-auth-stdin \
+            --languages "java,javascript,python"
+          codeql-runner autobuild
+          echo "${{ github.token }}" | codeql-runner analyze \
+            --github-url "https://github.com" \
+            --repository "${{ github.repository }}" \
+            --github-auth-stdin \
+            --commit "${{ github.sha }}" \
+            --ref "${{ github.ref }}"
