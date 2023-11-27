@@ -6,7 +6,7 @@ cryptography==2.6.1
 entrypoints==0.3
 Flask==1.1.2
 Flask-Cors==4.0.0
-idna==2.10
+idna==3.6
 itsdangerous==2.1.2
 Jinja2==2.11.2
 keyring==17.1.1
